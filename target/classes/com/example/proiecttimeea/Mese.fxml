@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #454545;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiecttimeea.Mese">
+   <children>
+      <Button layoutX="6.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: grey; -fx-border-color: black;" text="Back">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="548.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: grey; -fx-border-color: black;" text="Exit" />
+   </children>
+</AnchorPane>

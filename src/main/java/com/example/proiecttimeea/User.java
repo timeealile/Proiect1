@@ -4,6 +4,9 @@ public class User {
     private String id;
     private String username;
 
+    private String password;
+    private String role;
+
     @Override
     public String toString() {
         return "User{" +
@@ -46,8 +49,6 @@ public class User {
         this.role = role;
     }
 
-    private String password;
-    private String role;
 
     public User(String id, String username, String password, String role) {
         this.id = id;

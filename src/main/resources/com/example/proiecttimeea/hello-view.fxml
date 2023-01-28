@@ -1,22 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiecttimeea.Controller">
+<Pane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="600.0" style="-fx-background-color: #454545;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiecttimeea.Controller">
     <children>
-        <TextField fx:id="name" layoutX="236.0" layoutY="134.0" />
-        <Label layoutX="163.0" layoutY="139.0" text="Username" />
-        <Label layoutX="165.0" layoutY="182.0" prefWidth="52.0" text="Password" />
-        <PasswordField fx:id="password" layoutX="236.0" layoutY="178.0" />
-        <Button id="submitButton" layoutX="272.0" layoutY="228.0" mnemonicParsing="false" onAction="#getData" text="Submit" />
+        <TextField fx:id="name" layoutX="237.0" layoutY="144.0" />
+        <Label layoutX="143.0" layoutY="148.0" prefHeight="25.0" prefWidth="73.0" text="Username">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4526315927505493" green="0.44592592120170593" blue="0.44592592120170593" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+        <Label layoutX="143.0" layoutY="191.0" prefHeight="25.0" prefWidth="73.0" text="Password">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.3368421196937561" green="0.32810917496681213" blue="0.32810917496681213" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
+        <PasswordField fx:id="password" layoutX="236.0" layoutY="187.0" />
+        <Button id="submitButton" layoutX="274.0" layoutY="306.0" mnemonicParsing="false" onAction="#getData" prefHeight="33.0" prefWidth="73.0" style="-fx-background-color: grey; -fx-border-color: black;" text="Submit">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6947368383407593" green="0.6715789437294006" blue="0.6715789437294006" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Button>
 
 
         <Label layoutX="177.0" layoutY="182.0" />
       <Label fx:id="wrongLogin" layoutX="165.0" layoutY="98.0" prefHeight="17.0" prefWidth="146.0" textFill="#ff3636" />
 
     </children>
+   <effect>
+      <InnerShadow>
+         <color>
+            <Color red="0.378947377204895" green="0.021052632480859756" blue="0.021052632480859756" />
+         </color>
+      </InnerShadow>
+   </effect>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
 </Pane>

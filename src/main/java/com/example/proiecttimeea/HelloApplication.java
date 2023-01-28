@@ -7,14 +7,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.Objects;
 
 public class HelloApplication extends Application {
 
     private static Stage stg;
+    private static Database db = new Database();
 
     @Override
     public void start(Stage stage) throws IOException {
+        Angajati angajati = new Angajati();
+        angajati.getEmplooyes();
+        angajati.printEmployees();
         stg = stage;
         stage.setResizable(false);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));

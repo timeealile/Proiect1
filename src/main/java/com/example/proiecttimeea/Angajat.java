@@ -1,71 +1,75 @@
 package com.example.proiecttimeea;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.sql.Connection;
 import java.util.Date;
 
 public class Angajat {
-    private String id;
+    private BigDecimal cnp;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private Date hire_date;
+    private BigDecimal salary;
 
-    @Override
-    public String toString() {
-        return "Angajat{" +
-                "id='" + id + '\'' +
-                ", userId='" + userId + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", hireDate=" + hireDate +
-                '}';
+    public Angajat(BigDecimal cnp, String firstname, String lastname, String email, Date hire_date, BigDecimal salary) {
+        this.cnp = cnp;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.hire_date = hire_date;
+        this.salary = salary;
     }
 
-    public String getId() {
-        return id;
+    public BigDecimal getCnp() {
+        return cnp;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCnp(BigDecimal cnp) {
+        this.cnp = cnp;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getName() {
-        return name;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public int getAge() {
-        return age;
+    public Angajat() {
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public String getEmail() {
+        return email;
     }
 
-    public Date getHireDate() {
-        return hireDate;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setHireDate(Date hireDate) {
-        this.hireDate = hireDate;
+    public Date getHire_date() {
+        return hire_date;
     }
 
-    public Angajat(String id, String userId, String name, int age, Date hireDate) {
-        this.id = id;
-        this.userId = userId;
-        this.name = name;
-        this.age = age;
-        this.hireDate = hireDate;
+    public void setHire_date(Date hire_date) {
+        this.hire_date = hire_date;
     }
 
-    private String userId;
-    private String name;
-    private int age;
-    private Date hireDate;
+    public BigDecimal getSalary() {
+        return salary;
+    }
+
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
+    }
 }
