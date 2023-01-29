@@ -3,22 +3,19 @@ package com.example.proiecttimeea;
 public class Produs {
     private String name;
     private int price;
+    private int cantitate;
     private String id;
 
-    public Produs(String name, int price, String id) {
+    public Produs(String name, int price, String i,int cantitate) {
         this.name = name;
         this.price = price;
         this.id = id;
+        this.cantitate = cantitate;
     }
 
-    @Override
-    public String toString() {
-        return "Produs{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", id='" + id + '\'' +
-                '}';
-    }
+    public Produs(){}
+
+
 
     public String getName() {
         return name;
@@ -43,4 +40,8 @@ public class Produs {
     public void setId(String id) {
         this.id = id;
     }
+
+    public int getCantitate(){return cantitate;}
+
+    public void setCantitate(int cantitate){this.cantitate = cantitate;}
 }
