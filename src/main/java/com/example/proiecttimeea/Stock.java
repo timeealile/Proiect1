@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -67,9 +68,6 @@ public class Stock implements Initializable {
             idNumeProdus.setText(stock.get(index).getName());
             idCantitate.setText(String.valueOf(stock.get(index).getCantitate()));
             idPret.setText(String.valueOf(stock.get(index).getPrice()));
-
-
-
             listViewProduse.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
                 @Override
                 public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
@@ -83,5 +81,10 @@ public class Stock implements Initializable {
             System.out.println("catch");
             System.out.println(e);
         }
+    }
+
+    public void exit(ActionEvent actionEvent) throws IOException {
+        HelloApplication main = new HelloApplication();
+        main.changeScene("hello-view.fxml");
     }
 }

@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,10 @@ public class Angajati implements Initializable {
     @FXML
     public Label salariuAngajat;
     private Database db = new Database();
+
+    public String id;
+
+    public int index = 0;
 
     @FXML
     private ListView<String> listViewAngajati = new ListView<String>();
@@ -103,7 +109,6 @@ public class Angajati implements Initializable {
         String sql = "SELECT * FROM angajat";
         Statement stmt;
         ResultSet res;
-        int index = 0;
         try{
             Connection connection = db.connection();
             stmt = connection.createStatement();
@@ -132,12 +137,15 @@ public class Angajati implements Initializable {
             emailAngajat.setText(angajati.get(index).getEmail());
             dataAngajariiAngajat.setText(angajati.get(index).getHire_date().toString());
             salariuAngajat.setText(angajati.get(index).getSalary().toString());
+            this.id = String.valueOf(angajati.get(index).getCnp());
 
 
             listViewAngajati.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
                 @Override
                 public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                     System.out.println(listViewAngajati.getSelectionModel().getSelectedIndex());
+                    index = listViewAngajati.getSelectionModel().getSelectedIndex();
                     Angajat angajat = angajati.get(listViewAngajati.getSelectionModel().getSelectedIndex());
                     numeAngajat.setText(angajat.getFirstname());
                     prenumeAngajat.setText(angajat.getLastname());
@@ -145,11 +153,40 @@ public class Angajati implements Initializable {
                     emailAngajat.setText(angajat.getEmail());
                     dataAngajariiAngajat.setText(angajat.getHire_date().toString());
                     salariuAngajat.setText(angajat.getSalary().toString());
+                    id = String.valueOf(angajati.get(index).getCnp());
+
                 }
             });
         }catch (Exception e) {
             System.out.println("catch");
             System.out.println(e);
         }
+    }
+
+    public void stergere(ActionEvent actionEvent) throws SQLException {
+        String sql = "DELETE FROM angajat WHERE cnp="+this.id;
+        Statement stmt;
+        int res;
+        try{
+            System.out.println(this.id);
+            Connection connection = db.connection();
+            stmt = connection.createStatement();
+            res = stmt.executeUpdate(sql);
+            listViewAngajati.getItems().remove(index);
+
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void navToAdd(ActionEvent actionEvent) throws IOException {
+        HelloApplication main = new HelloApplication();
+        main.changeScene("AdaugareAngajat.fxml");
+    }
+
+    public void exit(ActionEvent actionEvent) throws IOException {
+        HelloApplication main = new HelloApplication();
+        main.changeScene("hello-view.fxml");
     }
 }

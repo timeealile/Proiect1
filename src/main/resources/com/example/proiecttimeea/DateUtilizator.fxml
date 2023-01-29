@@ -41,6 +41,6 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button layoutX="8.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: grey; -fx-border-color: black;" text="Back" />
+      <Button onAction="#back" layoutX="8.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: grey; -fx-border-color: black;" text="Back" />
    </children>
 </AnchorPane>

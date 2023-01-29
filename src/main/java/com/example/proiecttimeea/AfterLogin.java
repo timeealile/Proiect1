@@ -24,4 +24,9 @@ public class AfterLogin {
         HelloApplication main = new HelloApplication();
         main.changeScene(buttonText+".fxml");
     }
+
+    public void back() throws IOException{
+        HelloApplication main = new HelloApplication();
+        main.changeScene("hello-view"+".fxml");
+    }
 }

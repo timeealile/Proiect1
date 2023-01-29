@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Objects;
 
 public class Controller {
     Database database = new Database();
@@ -32,23 +33,33 @@ public class Controller {
     public void getData(ActionEvent actionEvent) throws IOException, SQLException {
         Connection connection = database.connection();
         HelloApplication main = new HelloApplication();
-        if(name.getText().equals("angajat") || name.getText().equals("admin") && password.getText().equals("parola")){
-            main.changeScene("DateUtilizator.fxml");
-        }
-        else if (name.getText().equals("angajat") || name.getText().equals("user") && password.getText().equals("parola")) {
-            main.changeScene("DateUtilizator.fxml");
-        }
-        else if(name.getText().isEmpty() && password.getText().isEmpty()){
+        String sql = "SELECT * FROM `users` WHERE user='"+name.getText()+"' AND parola='"+password.getText()+"'";
+        System.out.println(sql);
+        Statement stmt;
+        ResultSet res;
+        try{
+            stmt = connection.createStatement();
+            res = stmt.executeQuery(sql);
+            System.out.println(res);
+            while (res.next()){
+                if(Objects.equals(res.getString("rol"), "admin")){
+                    main.changeScene("DateUtilizator.fxml");
+                }
+                else if(Objects.equals(res.getString("rol"), "angajat")){
+                    main.changeScene("DateUtilizator.fxml");
+                }
+                else if(name.getText().isEmpty() && password.getText().isEmpty()){
             wrongLogin.setText("Please enter data");
         }
         else {
             wrongLogin.setText("Wrong user or password");
         }
 
-        Statement stmt = connection.createStatement();
-        ResultSet res = stmt.executeQuery("SELECT NOW()");
-        System.out.println(name.getText());
-        System.out.println(password.getText());
-//        JavaPostgresSql
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);}
+
+
     }
 }

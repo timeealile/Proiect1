@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #454545;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiecttimeea.Angajati">
+<AnchorPane fx:id="adaugareAngajat" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #454545;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proiecttimeea.Angajati">
    <children>
       <ListView fx:id="listViewAngajati" layoutX="41.0" layoutY="37.0" prefHeight="332.0" prefWidth="94.0" />
       <Label fx:id="numeAngajat" layoutX="213.0" layoutY="37.0" prefHeight="18.0" prefWidth="107.0" text="Label" />
@@ -23,7 +23,9 @@
       <Text layoutX="334.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data nasterii" />
       <Text layoutX="327.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data angajarii" />
       <Text layoutX="364.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salariu" />
-      <Button fx:id="backAngajati" onAction="#back" layoutY="1.0" mnemonicParsing="false" text="Back" />
-      <Button layoutX="548.0" layoutY="2.0" mnemonicParsing="false" text="Exit" />
+      <Button fx:id="backAngajati" layoutY="1.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button layoutX="548.0" layoutY="2.0" mnemonicParsing="false" text="Exit" onAction="#exit" />
+      <Button fx:id="stergereAngajat" layoutX="200.0" layoutY="285.0" mnemonicParsing="false" onAction="#stergere" text="Stergere angajat" />
+      <Button fx:id="backAngajati2" layoutX="354.0" layoutY="285.0" mnemonicParsing="false" onAction="#navToAdd" text="Adaugare angajat" />
    </children>
 </AnchorPane>
