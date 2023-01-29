@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Stock implements Initializable {
@@ -39,7 +40,13 @@ public class Stock implements Initializable {
 
     public void back() throws IOException {
         HelloApplication main = new HelloApplication();
+        if(Objects.equals(Controller.getRol(), "angajat")){
+            main.changeScene("HelloAngajat.fxml");
+
+    }
+        if(Objects.equals(Controller.getRol(),"admin")){
         main.changeScene("DateUtilizator.fxml");
+        }
     }
 
 

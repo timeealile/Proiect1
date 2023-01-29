@@ -30,6 +30,12 @@ public class Controller {
     @FXML
     private Label wrongLogin;
 
+    public static String rol;
+
+
+    public static String getRol () {
+        return rol;
+    }
     public void getData(ActionEvent actionEvent) throws IOException, SQLException {
         Connection connection = database.connection();
         HelloApplication main = new HelloApplication();
@@ -44,9 +50,11 @@ public class Controller {
             while (res.next()){
                 if(Objects.equals(res.getString("rol"), "admin")){
                     main.changeScene("DateUtilizator.fxml");
+                    rol = "admin";
                 }
                 else if(Objects.equals(res.getString("rol"), "angajat")){
-                    main.changeScene("DateUtilizator.fxml");
+                    main.changeScene("HelloAngajat.fxml");
+                    rol = "angajat";
                 }
                 else if(name.getText().isEmpty() && password.getText().isEmpty()){
             wrongLogin.setText("Please enter data");
